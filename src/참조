@@ -6,3 +6,49 @@ submit 을 하면 그 주소를 /search로 이동시키면서 그 검색 키워�
 1.keyword로 돌아온 데이터를 받아서
 2. 그 내용을 가지고서 api 요청을 해옴
 3. 그 데이터를 저장하여, 화면에 출력
+
+
+{
+"kind": "books#volumes",
+"totalItems": 1000000,
+"items": [
+{
+"kind": "books#volume",
+"id": "QR67pevV7h0C",
+"etag": "4KXTfRtnIVs",
+"selfLink": "https://www.googleapis.com/books/v1/volumes/QR67pevV7h0C",
+"volumeInfo": {
+"title": "Canadian Journal of Mathematics",
+"publishedDate": "1995-02",
+"readingModes": {
+"text": false,
+"image": true
+},
+"pageCount": 224,
+"printType": "MAGAZINE",
+"maturityRating": "NOT_MATURE",
+"allowAnonLogging": false,
+"contentVersion": "preview-1.0.0",
+"panelizationSummary": {
+"containsEpubBubbles": false,
+"containsImageBubbles": false
+},
+"imageLinks": {
+"smallThumbnail": "http://books.google.com/books/content?id=QR67pevV7h0C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+"thumbnail": "http://books.google.com/books/content?id=QR67pevV7h0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+},
+"language": "en",
+"previewLink": "http://books.google.co.kr/books?id=QR67pevV7h0C&pg=PA224&dq=Math&hl=&cd=1&source=gbs_api",
+"infoLink": "http://books.google.co.kr/books?id=QR67pevV7h0C&dq=Math&hl=&source=gbs_api",
+"canonicalVolumeLink": "https://books.google.com/books/about/Canadian_Journal_of_Mathematics.html?hl=&id=QR67pevV7h0C"
+},
+"saleInfo": {
+"country": "KR",
+"saleability": "NOT_FOR_SALE",
+"isEbook": false
+},
+"accessInfo": {
+"country": "KR",
+"viewability": "ALL_PAGES",
+"embeddable": true,
+"publicDomain": false,
