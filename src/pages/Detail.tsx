@@ -1,11 +1,12 @@
-import {useNavigate, useParams} from "react-router";
-import {useEffect, useState} from "react";
-import type {BookItem} from "./Search.tsx";
+import { useNavigate, useParams } from "react-router";
+import { useEffect, useState } from "react";
+import type { BookItem } from "./Search.tsx";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
     padding: 30px;
 `;
+
 const BackButton = styled.button`
     display: flex;
     align-items: center;
@@ -13,38 +14,41 @@ const BackButton = styled.button`
     border-radius: 6px;
     border: 1px solid #ccc;
     background-color: #f3f3f3;
-    color:#333;
-
+    color: #333;
 `;
 
 function Detail() {
-
-    const {id} = useParams();
+    // 1. state 생성
+    // 2. fetch 해서 데이터를 받아와서 state에 저장
+    // 3. 그걸로 화면을 그려줌
+    const { id } = useParams();
     const [book, setBook] = useState<BookItem | null>(null);
     const navigate = useNavigate();
 
     useEffect(() => {
-
         fetch(`https://www.googleapis.com/books/v1/volumes/${id}`)
-            .then((res) => res.json())
+            .then(response => response.json())
             .then((data: BookItem) => {
                 setBook(data);
-            })
-    }, [id]);
+            });
+    }, []);
 
-    if(!book){
-        return <Wrapper>Loading...</Wrapper>
+    if (!book) {
+        return <Wrapper>Loading...</Wrapper>;
     }
 
     return (
         <Wrapper>
-            <BackButton onClick={() => {
-                navigate(-1);
-            }}>&larr; 뒤로가기</BackButton>
+            <BackButton
+                onClick={() => {
+                    navigate(-1);
+                }}>
+                &larr; 뒤로 가기
+            </BackButton>
             <h2>{book.volumeInfo.title}</h2>
             <img src={book.volumeInfo.imageLinks?.smallThumbnail || ""} />
             <p>{book.volumeInfo.authors}</p>
-            <p>{book.volumeInfo.description || "설명없슴"}</p>
+            <p>{book.volumeInfo.description || "설명 없음"}</p>
         </Wrapper>
     );
 }

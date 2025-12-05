@@ -58,28 +58,20 @@ function Search() {
 
     return (
         <Wrapper>
-            <h3>
-                검색결과 : {keyword}
-            </h3>
+            <h3>검색 결과: {keyword}</h3>
             {list.map((item, index) => {
                 return (
                     <Item to={`/detail/${item.id}`} key={index}>
-                        <Cover
-                            src={item.volumeInfo.imageLinks?.smallThumbnail || ""}/>
+                        <Cover src={item.volumeInfo.imageLinks?.smallThumbnail || ""} />
                         <div>
-                            {item.volumeInfo.title}
-                        </div>
-                        <div style={{
-                            fontSize: 12, color: "#555"
-                        }}>
-                            {item.volumeInfo.authors}
+                            <div>{item.volumeInfo.title}</div>
+                            <div style={{ fontSize: 12, color: "#555" }}>
+                                {item.volumeInfo.authors}
+                            </div>
                         </div>
                     </Item>
-                )
+                );
             })}
-            <div>
-                각각의 책 정보
-            </div>
         </Wrapper>
     );
 }
