@@ -2,7 +2,7 @@ import {Link, useSearchParams} from "react-router";
 import {useEffect, useState} from "react";
 import styled from "styled-components";
 
-type BookItem = {
+export type BookItem = {
     id: string;
     volumeInfo: {
         title: string;
@@ -49,7 +49,6 @@ function Search() {
     const [list, setList] = useState<BookItem[]>([]);
 
     useEffect(() => {
-        if (!keyword) return;
         fetch(`https://www.googleapis.com/books/v1/volumes?q=${keyword}&maxResults=20`)
             .then(res => res.json())
             .then((data: ApiResponse) => {
