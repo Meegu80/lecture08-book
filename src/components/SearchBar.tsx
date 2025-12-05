@@ -1,5 +1,6 @@
 import {useState} from "react";
 import styled from "styled-components";
+import {useNavigate} from "react-router";
 
 const Form = styled.form`
     display: flex;
@@ -20,9 +21,18 @@ function SearchBar() {
 
     const [keyword, setKeyword] = useState("");
 
+    //사용자 이동에 관련된 사항은 먼저, uN()를 실행하여 만들어진 결과를
+    // 변수에 넣어서 그걸 이용해야 함
+    const navigate = useNavigate()
 
-    return <Form>
-        <Input placeholder={"책 제목, 저자 등 검색"}/>
+    return <Form onSubmit={(e) => {
+        e.preventDefault();
+        navigate(`/search?keyword=${keyword}`);
+    }}>
+        <Input
+            placeholder={"책 제목, 저자 등 검색"}
+            onChange={(e) => setKeyword(e.target.value)}
+            />
         <Button>검색</Button>
 
     </Form>
