@@ -24,12 +24,13 @@ const Item = styled(Link)`
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 12px;border-radius: 80%;
+    padding: 12px;
+    border-radius: 8px;
     background-color: #fff;
     margin-bottom: 10px;
     border: 1px solid #ddd;
 `;
-const Cover = styled.div`
+const Cover = styled.img`
     width: 60px;
     height: 90px;
     border-radius: 4px;
@@ -64,7 +65,7 @@ function Search() {
             {list.map((item, index) => {
                 return (
                     <Item to={`/detail/${item.id}`} key={index}>
-                        <img
+                        <Cover
                             src={item.volumeInfo.imageLinks?.smallThumbnail || ""}/>
                         <div>
                             {item.volumeInfo.title}
